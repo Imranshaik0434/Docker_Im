@@ -3,7 +3,7 @@ MAINTAINER Imran
 RUN mkdir -p /app/source
 WORKDIR /app/source
 COPY . .
-RUN ./mvnw package
+RUN chmod +x ./mvnw package
 ARG JAR_FILE=./target/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
