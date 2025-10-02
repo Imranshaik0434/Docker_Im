@@ -6,6 +6,7 @@ EXPOSE 8083
 RUN mkdir -p /app/source
 WORKDIR /app/source
 COPY ./ /app/source
+RUN chmod +x ./mvnw
 RUN ./mvnw package
 RUN mv = ./target/*.jar app.jar
 ENTRYPOINT ["java", "-jar", "app.jar"]
